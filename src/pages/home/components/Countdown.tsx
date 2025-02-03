@@ -52,20 +52,18 @@ export default function Countdown({ nextPrayerID, setNextPrayerID, currentPrayer
 
 
     return (
-        <div className=" w-full h-36 sm:h-40 bg-cover bg-[url('pics/hero-quran.webp')] bg-gray-500 bg-blend-multiply relative">
-            <>
-                <div className="flex flex-col justify-center items-center h-full">
-                    <div className="font-semibold text-2xl">متبق على صلاة {nextPrayerID && PRAYERS_ID[+nextPrayerID].ar}</div>
-                    <div className="text-2xl font-medium flex flex-row-reverse gap-1 mt-1 tabular-nums w-24 select-none">
-                        <span>-</span>
-                        <span>{countdown}</span>
-                    </div>
+        <div className=" w-full h-36 sm:h-40 bg-cover bg-[url('/pics/hero-quran.webp')] bg-gray-500 bg-blend-multiply relative">
+            <div className="flex flex-col justify-center items-center h-full">
+                <div className="font-semibold text-2xl">متبق على صلاة {nextPrayerID && PRAYERS_ID[+nextPrayerID].ar}</div>
+                <div className="text-2xl font-medium flex flex-row-reverse gap-1 mt-1 tabular-nums w-24 select-none">
+                    <span>-</span>
+                    <span>{countdown}</span>
                 </div>
-                <div className="flex gap-2 items-center justify-center text-sm mt-1 absolute bottom-1 left-1/2 -translate-x-1/2">
-                    <span className="text-primary"><FontAwesomeIcon icon={faLocationDot} /></span>
-                    <span>العيون</span>
-                </div>
-            </>
+            </div>
+            <div className="flex gap-2 items-center justify-center text-sm mt-1 absolute bottom-1 left-1/2 -translate-x-1/2">
+                <span className="text-primary"><FontAwesomeIcon icon={faLocationDot} /></span>
+                <span>العيون</span>
+            </div>
         </div>
     )
 }
