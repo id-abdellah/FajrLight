@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-export default function usePrevious(value: any): any {
-    const currentState = useRef(value)
-    const prevState = useRef()
+export default function usePrevious<T>(value: T): T | undefined {
+    const prevRef = useRef<T | undefined>(undefined);
+    const currentRef = useRef<T>(value);
 
-    if (currentState.current !== value) {
-        prevState.current = currentState.current;
-        currentState.current = value
-    }
+    useEffect(() => {
+        prevRef.current = currentRef.current;
+        currentRef.current = value;
+    }, [value]);
 
-    return prevState.current
+    return prevRef.current;
 }
