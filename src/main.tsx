@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import App from './App.tsx';
@@ -20,7 +19,7 @@ import { Toaster } from "react-hot-toast"
 const queryClient: QueryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
@@ -29,5 +28,5 @@ createRoot(document.getElementById('root')!).render(
         </Provider>
       </QueryClientProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </>,
 );

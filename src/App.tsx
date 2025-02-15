@@ -3,6 +3,9 @@ import { NavLink, Route, Routes } from 'react-router';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBookQuran, faCalendarDay, faGear, faHandPointUp } from "@fortawesome/free-solid-svg-icons"
+import Quran_Browsing from './pages/quran/browsing';
+import Quran_Listening from './pages/quran/listening';
+import ChoosedReciter from './pages/quran/listening/components/ChoosedReciter';
 
 // App pages
 const PrayerTimesPage = lazy(() => import("./pages/home/index"))
@@ -23,6 +26,9 @@ export default function App() {
             <Routes>
                <Route path='/' element={<PrayerTimesPage />} />
                <Route path='/quran' element={<QuranPage />} />
+               <Route path='/quran/browsing' element={<Quran_Browsing />} />
+               <Route path='/quran/listening' element={<Quran_Listening />} />
+               <Route path='/quran/listening/:reciterID' element={<ChoosedReciter />} />
                <Route path='/athkar' element={<AzkarPage />} />
                <Route path='/settings' element={<SettingsPage />} />
                <Route path='*' element={<div>Page Not Found</div>} />
@@ -32,7 +38,7 @@ export default function App() {
          <nav className='h-[60px] bg-surface flex flex-row-reverse justify-between items-center px-2 sm:px-4'>
 
             <div>
-               اوديو
+               <img src="/pics/logo/logo-32.png" alt="" />
             </div>
 
             <ul className='flex gap-8 items-center'>

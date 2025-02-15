@@ -16,23 +16,24 @@ type InitialState = {
             enabled: boolean,
             which: Range<0, 25>
         }
+        clockType: 24 | 12
     }
 
     browsingQuranPage: {
-        pageNumber: Range<1, 605>
+        pageNumber: number
         quranType: "quran-simple" | "quran-simple-clean"
-
+        fontSize: number
+        showCopy: boolean
         tafsir: {
             enabled: boolean
             which: "ar.muyassar" | "ar.qurtubi" | "ar.baghawi"
         },
+
         reciter: {
             enabled: boolean
             which: string
         }
     }
-
-    clockType: 24 | 12
 }
 
 
@@ -48,30 +49,48 @@ const initialState: InitialState = {
         calculationMethod: {
             enabled: false,
             which: 21
-        }  
+        },
+        clockType: 24
     },
+    
     browsingQuranPage: {
         pageNumber: 1,
         quranType: "quran-simple",
+        showCopy: true,
+        fontSize: 20,
         tafsir: {
             enabled: true,
             which: "ar.muyassar"
         },
         reciter: {
             enabled: true,
-            which: "ar.abdurrahmaansudais"
+            which: "ar.alafasy"
         }
-    },
-    clockType: 24
+    }
 }
 
 
+
 const settingsSlice = createSlice({
-    name: "todos",
+    name: "settings",
     initialState,
-    reducers: {}
+    reducers: {
+        nextPage: (state) => {
+            const currentPage = state.browsingQuranPage.pageNumber
+            if (currentPage == 604) return
+            state.browsingQuranPage.pageNumber = currentPage + 1
+        },
+        prevPage: (state) => {
+            const currentPage = state.browsingQuranPage.pageNumber
+            if (currentPage == 1) return
+            state.browsingQuranPage.pageNumber = currentPage - 1
+        },
+        setPage: (state, action) => {
+            state.browsingQuranPage.pageNumber = action.payload
+        }
+    }
 })
 
 
-// export const {} = settingsSlice.actions
+export const {nextPage, prevPage, setPage} = settingsSlice.actions
 export default settingsSlice.reducer

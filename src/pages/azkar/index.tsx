@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import supplicationsIndex from "../../../public/resources/supplications/index.json"
-import Hadith from "./components/Hadith"
 import Modal from "./components/Modal"
+import Hadith from "../../components/Hadith"
 
 export type Supplication = {
     ID: number
@@ -55,7 +55,7 @@ export default function AzkarPage() {
     return (
         <section className="p-3">
 
-            <Hadith />
+            <Hadith page="azkar" />
 
             {/* Supplications List */}
             <div className="mt-5 space-y-5 text-on_primary font-medium text-sm">
