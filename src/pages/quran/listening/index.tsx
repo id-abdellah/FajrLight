@@ -49,7 +49,7 @@ export default function Quran_Listening() {
                         type="search"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)} />
-                    <div>
+                    <div className="space-y-6">
                         <RecitersList reciters={reciters} />
                     </div>
                 </div>
