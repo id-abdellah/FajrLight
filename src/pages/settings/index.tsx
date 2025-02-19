@@ -1,5 +1,3 @@
 export default function SettingsPage() {
-    return (
-        <div>الاعدادات</div>
-    )
+  return <section className="p-3">fs</section>;
 }

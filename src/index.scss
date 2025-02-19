@@ -1,38 +1,37 @@
-@use "./styles/Theme";
-@use "./styles/Typography";
+@use './styles/Theme';
+@use './styles/Typography';
+@use './styles/Switcher';
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    ::-webkit-scrollbar {
-        display: none;
-    }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
-    * {
-        scrollbar-width: 0;
-    }
+  * {
+    scrollbar-width: 0;
+  }
 
-    body {
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.5;
-        background-color: rgba(var(--bg));
-        color: rgba(var(--on-bg));
-        direction: rtl;
-    }
+  body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    background-color: rgba(var(--bg));
+    color: rgba(var(--on-bg));
+    direction: rtl;
+  }
 
-    input,
-    textarea {
-        @apply text-black
-    }
+  input,
+  textarea {
+    @apply text-black;
+  }
 }
 
-
 @layer utilities {
-    .activeLink {
-        @apply *:text-primary
-    }
+  .activeLink {
+    @apply *:text-primary;
+  }
 }
