@@ -1,5 +1,5 @@
 import { lazy, useEffect } from 'react';
-import { NavLink, Route, Routes } from 'react-router';
+import { NavLink, Route, Routes, useNavigate } from 'react-router';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -19,6 +19,8 @@ const AzkarPage = lazy(() => import('./pages/azkar/index'));
 const SettingsPage = lazy(() => import('./pages/settings/index'));
 
 export default function App() {
+  const navigate = useNavigate()
+
   useEffect(() => {
     document.body.setAttribute('data-theme', 'dark');
   }, []);
@@ -42,7 +44,7 @@ export default function App() {
       </main>
 
       <nav className="flex h-[60px] flex-row-reverse items-center justify-between bg-surface px-2 sm:px-4">
-        <div>
+        <div className='cursor-pointer' onClick={() => navigate("/")}>
           <img src="/pics/logo/logo-32.png" alt="" />
         </div>
 

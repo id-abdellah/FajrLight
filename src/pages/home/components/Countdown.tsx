@@ -4,6 +4,8 @@ import { CurrentDate, PRAYERS_ID } from '..';
 import { useEffect, useState } from 'react';
 import { formatCountdown, getNextPrayerDiff } from '../utils/coutdown';
 import { getNextPrayer } from '../utils/getNextPrayer';
+import { useSelector } from 'react-redux';
+import { RooteState } from '../../../store/store';
 
 type Props = {
   currentDate?: CurrentDate;
@@ -20,11 +22,8 @@ export type NextPrayerData = {
   };
 };
 
-export default function Countdown({
-  nextPrayerID,
-  setNextPrayerID,
-  currentPrayersTimings,
-}: Props) {
+export default function Countdown({ nextPrayerID, setNextPrayerID, currentPrayersTimings }: Props) {
+  const location = useSelector((state: RooteState) => state.settings.prayerTimes.location)
   const [countdown, setCountdown] = useState('00:00:00');
 
   // this useEffect logic won't run unless there is nextPrayerID
@@ -68,7 +67,7 @@ export default function Countdown({
         <span className="text-primary">
           <FontAwesomeIcon icon={faLocationDot} />
         </span>
-        <span>العيون</span>
+        <span className='font-serif font-medium'>{location.city_ar ? location.city_ar : location.city}</span>
       </div>
     </div>
   );
