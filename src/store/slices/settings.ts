@@ -56,7 +56,7 @@ const initialState: InitialState = {
     },
 
     browsingQuranPage: {
-        pageNumber: 480,
+        pageNumber: 1,
         quranType: 'quran-simple',
         showCopy: true,
         fontSize: {

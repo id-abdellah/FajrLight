@@ -60,11 +60,7 @@ export default function PrayerTimesPage() {
   const [nextPrayerID, setNextPrayerID] = useState<null | number>(null);
 
   // getting current day prayer times
-  const {
-    data: responseData,
-    isLoading,
-    isError,
-  } = useQuery({
+  const { data: responseData, isLoading, isError } = useQuery({
     queryFn: () =>
       API.dayPrayerTimes(
         currentDate,

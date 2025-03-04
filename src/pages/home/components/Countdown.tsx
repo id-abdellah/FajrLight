@@ -24,7 +24,7 @@ export type NextPrayerData = {
 
 export default function Countdown({ nextPrayerID, setNextPrayerID, currentPrayersTimings }: Props) {
   const location = useSelector((state: RooteState) => state.settings.prayerTimes.location)
-  const [countdown, setCountdown] = useState('00:00:00');
+  const [countdown, setCountdown] = useState<null | string>(null);
 
   // this useEffect logic won't run unless there is nextPrayerID
   // countdown till next prayer
@@ -43,7 +43,6 @@ export default function Countdown({ nextPrayerID, setNextPrayerID, currentPrayer
       const diff = getNextPrayerDiff(nextPrayerData);
       setCountdown(formatCountdown(diff));
     }, 1000);
-
     return () => clearInterval(countdownInterval);
   }, [nextPrayerID, currentPrayersTimings]);
 
@@ -60,7 +59,7 @@ export default function Countdown({ nextPrayerID, setNextPrayerID, currentPrayer
         </div>
         <div className="mt-1 flex w-24 select-none flex-row-reverse gap-1 text-2xl font-medium tabular-nums">
           <span>-</span>
-          <span>{countdown}</span>
+          <span>{countdown ? countdown : "00:00:00"}</span>
         </div>
       </div>
       <div className="absolute bottom-1 left-1/2 mt-1 flex -translate-x-1/2 items-center justify-center gap-2 text-sm">
